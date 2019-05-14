@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/pages/qr_scanner.dart';
 import '../pages/calls_screen.dart';
 import '../pages/camera_screen.dart';
 import '../pages/chats_screen.dart';
@@ -56,7 +57,15 @@ class _HomePageState extends State<HomePage>
           new Padding(
             padding: EdgeInsets.symmetric(horizontal: 5.0),
           ),
-          new Icon(Icons.more_vert)
+          IconButton(
+            icon: new Icon(Icons.more_vert),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => QrScanner()),
+              );
+            },
+          ),
         ],
       ),
       body: new TabBarView(
