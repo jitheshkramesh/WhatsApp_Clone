@@ -4,8 +4,11 @@ import '../pages/camera_screen.dart';
 import '../pages/chats_screen.dart';
 import '../pages/settings_screen.dart';
 import '../pages/status_screen.dart';
+import 'package:camera/camera.dart';
 
 class HomePage extends StatefulWidget {
+  final List<CameraDescription> cameras;
+  HomePage(this.cameras);
   @override
   State<StatefulWidget> createState() {
     return _HomePageState();
@@ -61,7 +64,7 @@ class _HomePageState extends State<HomePage>
         children: <Widget>[
           new StatusScreen(),
           new CallsScreen(),
-          new CameraScreen(),
+          new CameraScreen(widget.cameras),
           new ChatsScreen(),
           new SettingsScreen(),
         ],

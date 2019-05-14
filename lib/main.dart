@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'pages/home_page.dart';
+import 'package:camera/camera.dart';
 
-void main() => runApp(MyApp());
+List<CameraDescription> cameras;
+
+Future<Null> main() async {
+  cameras = await availableCameras();
+  runApp(new MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -13,7 +19,7 @@ class MyApp extends StatelessWidget {
         accentColor: new Color(0xff25D366),
       ),
       debugShowCheckedModeBanner: false,
-      home: new HomePage(),
+      home: new HomePage(cameras),
     );
   }
 }
